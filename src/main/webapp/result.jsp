@@ -60,22 +60,37 @@
             <tbody>
                 <c:forEach var="q" begin="1" end="20">
                     <tr>
+                        <!-- 問番号の表示 -->
                         <td>${q}</td>
-                        <td>${amResult["question" + q] != null ? CharacterUtil.getJapaneseCharacter(amResult["question" + q]) : "N/A"}</td>
-                        <td>${examResult != null && examResult["mon" + q] != null ? CharacterUtil.getJapaneseCharacter(examResult["mon" + q]) : "N/A"}</td>
-                        <td>${amResult["question" + q] != null && examResult != null && examResult["mon" + q] != null && amResult["question" + q] == examResult["mon" + q] ? "〇" : "×"}</td>
+                        <c:set var="questionKey1" value="${'Question_' + q}" />
+                        <c:set var="examKey1" value="${'問' + q}" />
+                        <td>${amResults[0][questionKey1] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey1]) : "N/A"}</td>
+                        <td>${examResults[0][examKey1] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey1]) : "N/A"}</td>
+                        <td>${amResults[0][questionKey1] != null && examResults[0][examKey1] != null && amResults[0][questionKey1] == examResults[0][examKey1] ? "〇" : "×"}</td>
+
+                        <!-- 問番号+20の表示 -->
                         <td>${q + 20}</td>
-                        <td>${amResult["question" + (q + 20)] != null ? CharacterUtil.getJapaneseCharacter(amResult["question" + (q + 20)]) : "N/A"}</td>
-                        <td>${examResult != null && examResult["mon" + (q + 20)] != null ? CharacterUtil.getJapaneseCharacter(examResult["mon" + (q + 20)]) : "N/A"}</td>
-                        <td>${amResult["question" + (q + 20)] != null && examResult != null && examResult["mon" + (q + 20)] != null && amResult["question" + (q + 20)] == examResult["mon" + (q + 20)] ? "〇" : "×"}</td>
+                        <c:set var="questionKey2" value="${'Question_' + (q + 20)}" />
+                        <c:set var="examKey2" value="${'問' + (q + 20)}" />
+                        <td>${amResults[0][questionKey2] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey2]) : "N/A"}</td>
+                        <td>${examResults[0][examKey2] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey2]) : "N/A"}</td>
+                        <td>${amResults[0][questionKey2] != null && examResults[0][examKey2] != null && amResults[0][questionKey2] == examResults[0][examKey2] ? "〇" : "×"}</td>
+
+                        <!-- 問番号+40の表示 -->
                         <td>${q + 40}</td>
-                        <td>${amResult["question" + (q + 40)] != null ? CharacterUtil.getJapaneseCharacter(amResult["question" + (q + 40)]) : "N/A"}</td>
-                        <td>${examResult != null && examResult["mon" + (q + 40)] != null ? CharacterUtil.getJapaneseCharacter(examResult["mon" + (q + 40)]) : "N/A"}</td>
-                        <td>${amResult["question" + (q + 40)] != null && examResult != null && examResult["mon" + (q + 40)] != null && amResult["question" + (q + 40)] == examResult["mon" + (q + 40)] ? "〇" : "×"}</td>
+                        <c:set var="questionKey3" value="${'Question_' + (q + 40)}" />
+                        <c:set var="examKey3" value="${'問' + (q + 40)}" />
+                        <td>${amResults[0][questionKey3] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey3]) : "N/A"}</td>
+                        <td>${examResults[0][examKey3] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey3]) : "N/A"}</td>
+                        <td>${amResults[0][questionKey3] != null && examResults[0][examKey3] != null && amResults[0][questionKey3] == examResults[0][examKey3] ? "〇" : "×"}</td>
+
+                        <!-- 問番号+60の表示 -->
                         <td>${q + 60}</td>
-                        <td>${amResult["question" + (q + 60)] != null ? CharacterUtil.getJapaneseCharacter(amResult["question" + (q + 60)]) : "N/A"}</td>
-                        <td>${examResult != null && examResult["mon" + (q + 60)] != null ? CharacterUtil.getJapaneseCharacter(examResult["mon" + (q + 60)]) : "N/A"}</td>
-                        <td>${amResult["question" + (q + 60)] != null && examResult != null && examResult["mon" + (q + 60)] != null && amResult["question" + (q + 60)] == examResult["mon" + (q + 60)] ? "〇" : "×"}</td>
+                        <c:set var="questionKey4" value="${'Question_' + (q + 60)}" />
+                        <c:set var="examKey4" value="${'問' + (q + 60)}" />
+                        <td>${amResults[0][questionKey4] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey4]) : "N/A"}</td>
+                        <td>${examResults[0][examKey4] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey4]) : "N/A"}</td>
+                        <td>${amResults[0][questionKey4] != null && examResults[0][examKey4] != null && amResults[0][questionKey4] == examResults[0][examKey4] ? "〇" : "×"}</td>
                     </tr>
                 </c:forEach>
             </tbody>
