@@ -28,7 +28,8 @@
     <h2>Student ID: ${studentId}</h2>
     <h2>Test Iteration: ${testIteration}</h2>
     <h2>Test Session: ${testSession}</h2>
-
+    <h2>Test Results: ${testResults}</h2>
+    
     <div class="section">
         <table>
             <thead>
@@ -62,32 +63,33 @@
                     <tr>
                         <!-- 問番号の表示 -->
                         <td>${q}</td>
-                        <c:set var="questionKey1" value="${'Question_' + q}" />
-                        <c:set var="examKey1" value="${'問' + q}" />
+                        <!-- キーを連結して設定 -->
+                        <c:set var="questionKey1"><c:out value="question${q}" /></c:set>
+                        <c:set var="examKey1"><c:out value="mon${q}" /></c:set>
                         <td>${amResults[0][questionKey1] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey1]) : "N/A"}</td>
                         <td>${examResults[0][examKey1] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey1]) : "N/A"}</td>
                         <td>${amResults[0][questionKey1] != null && examResults[0][examKey1] != null && amResults[0][questionKey1] == examResults[0][examKey1] ? "〇" : "×"}</td>
 
                         <!-- 問番号+20の表示 -->
                         <td>${q + 20}</td>
-                        <c:set var="questionKey2" value="${'Question_' + (q + 20)}" />
-                        <c:set var="examKey2" value="${'問' + (q + 20)}" />
+                        <c:set var="questionKey2"><c:out value="question${q + 20}" /></c:set>
+                        <c:set var="examKey2"><c:out value="mon${q + 20}" /></c:set>
                         <td>${amResults[0][questionKey2] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey2]) : "N/A"}</td>
                         <td>${examResults[0][examKey2] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey2]) : "N/A"}</td>
                         <td>${amResults[0][questionKey2] != null && examResults[0][examKey2] != null && amResults[0][questionKey2] == examResults[0][examKey2] ? "〇" : "×"}</td>
 
                         <!-- 問番号+40の表示 -->
                         <td>${q + 40}</td>
-                        <c:set var="questionKey3" value="${'Question_' + (q + 40)}" />
-                        <c:set var="examKey3" value="${'問' + (q + 40)}" />
+                        <c:set var="questionKey3"><c:out value="question${q + 40}" /></c:set>
+                        <c:set var="examKey3"><c:out value="mon${q + 40}" /></c:set>
                         <td>${amResults[0][questionKey3] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey3]) : "N/A"}</td>
                         <td>${examResults[0][examKey3] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey3]) : "N/A"}</td>
                         <td>${amResults[0][questionKey3] != null && examResults[0][examKey3] != null && amResults[0][questionKey3] == examResults[0][examKey3] ? "〇" : "×"}</td>
 
                         <!-- 問番号+60の表示 -->
                         <td>${q + 60}</td>
-                        <c:set var="questionKey4" value="${'Question_' + (q + 60)}" />
-                        <c:set var="examKey4" value="${'問' + (q + 60)}" />
+                        <c:set var="questionKey4"><c:out value="question${q + 60}" /></c:set>
+                        <c:set var="examKey4"><c:out value="mon${q + 60}" /></c:set>
                         <td>${amResults[0][questionKey4] != null ? CharacterUtil.getJapaneseCharacter(amResults[0][questionKey4]) : "N/A"}</td>
                         <td>${examResults[0][examKey4] != null ? CharacterUtil.getJapaneseCharacter(examResults[0][examKey4]) : "N/A"}</td>
                         <td>${amResults[0][questionKey4] != null && examResults[0][examKey4] != null && amResults[0][questionKey4] == examResults[0][examKey4] ? "〇" : "×"}</td>

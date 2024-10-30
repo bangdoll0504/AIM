@@ -109,9 +109,24 @@ public class SearchServlet extends HttpServlet {
             if (amResultList.isEmpty() && examResultList.isEmpty()) {
                 request.setAttribute("errorMessage", "該当するデータが見つかりませんでした。");
             } else {
-                request.setAttribute("amResult", amResultList);
-                request.setAttribute("examResult", examResultList);
+                request.setAttribute("amResults", amResultList);
+                request.setAttribute("examResults", examResultList);
             }
+            
+            // 正解数のカウントと1.25倍の計算
+            int correctCount = 0;
+            for (int i = 1; i <= 80; i++) {
+                String questionKey = "question" + i;
+                String monKey = "mon" + i;
+                if (amResultList.get(0).get(questionKey) != null 
+                    && examResultList.get(0).get(monKey) != null 
+                    && amResultList.get(0).get(questionKey).equals(examResultList.get(0).get(monKey))) {
+                    correctCount++;
+                }
+            }
+            double testResults = correctCount * 1.25;  // 正解数×1.25
+            request.setAttribute("testResults", testResults);  // JSPに渡す
+
 
             request.getRequestDispatcher("result.jsp").forward(request, response);
 
