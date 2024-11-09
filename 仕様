@@ -1,0 +1,12 @@
+成績照会　仕様
+・前提条件はTestIterationファイルに対策回を指定
+・IndexServletを実行
+・学籍番号と試験回を指定
+・検索し採点後表示
+
+実行順
+・IndexServlet-resultcheck.jsp-SearchServlet-result.jsp
+
+
+
+学生登録　仕様
