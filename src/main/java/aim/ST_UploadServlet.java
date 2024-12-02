@@ -19,11 +19,15 @@ import javax.servlet.http.Part;
 public class ST_UploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private StudentDAO studentDAO;
-
-    public void init() {
+  
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        // StudentDAOのインスタンスを初期化
         studentDAO = new StudentDAO();
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Part filePart = request.getPart("file");
         InputStream fileContent = filePart.getInputStream();
